@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import cub.sys360.shimmerapplication.ui.theme.ShimmerApplicationTheme
+import cub.sys360.shimmerapplication.ui.theme.shimmerLoading
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,11 +24,15 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                  Column() {
-                      repeat(5){
-                          shimmerLoading()
-                      }
-                  }
+
+                    Column() {
+
+                        repeat(2){
+                            shimmerLoading()
+                        }
+
+                    }
+
                 }
             }
         }

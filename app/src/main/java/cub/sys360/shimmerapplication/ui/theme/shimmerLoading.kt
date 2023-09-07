@@ -1,4 +1,4 @@
-package cub.sys360.shimmerapplication
+package cub.sys360.shimmerapplication.ui.theme
 
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.RepeatMode
@@ -33,12 +33,14 @@ fun shimmerLoading(){
 
     val shimmerColors = listOf(
         Color.LightGray.copy(alpha = 0.6f),
-        Color.LightGray.copy(alpha =0.2f),
-        Color.LightGray.copy(alpha= 0.6f)
+        Color.LightGray.copy(alpha = 0.2f),
+        Color.LightGray.copy(alpha = 0.6f),
+
     )
 
 
-    val transition = rememberInfiniteTransition()
+    val transition = rememberInfiniteTransition();
+
     val translateAnim = transition.animateFloat(
         initialValue = 0f,
         targetValue = 1000f,
@@ -47,9 +49,11 @@ fun shimmerLoading(){
                 durationMillis = 1000,
                 easing = FastOutSlowInEasing
             ),
+
             repeatMode = RepeatMode.Reverse
         )
     )
+
 
     val brush = Brush.linearGradient(
         colors = shimmerColors,
@@ -58,12 +62,10 @@ fun shimmerLoading(){
     )
 
 
-
-
     shimmerItme(brush = brush)
 
-
 }
+
 
 
 @Composable
@@ -73,16 +75,16 @@ fun shimmerItme(brush: Brush) {
             .fillMaxWidth()
             .padding(all = 10.dp),
         verticalAlignment = Alignment.CenterVertically
-            ){
+    ){
 
         Spacer(
             modifier = Modifier
                 .background(brush = brush)
                 .clip(shape = RectangleShape)
                 .size(100.dp))
-        
+
         Spacer(modifier = Modifier.width(10.dp))
-        
+
         Column(verticalArrangement = Arrangement.Center) {
             Spacer(
                 modifier = Modifier
